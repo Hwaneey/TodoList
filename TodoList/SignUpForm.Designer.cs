@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.passwordForm = new System.Windows.Forms.TextBox();
-            this.signUpusernameForm = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.SignUpEmailForm = new System.Windows.Forms.TextBox();
@@ -39,9 +38,10 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.signUpusernameForm = new System.Windows.Forms.TextBox();
+            this.passwordForm = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -49,26 +49,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // passwordForm
-            // 
-            this.passwordForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordForm.Location = new System.Drawing.Point(56, 245);
-            this.passwordForm.Name = "passwordForm";
-            this.passwordForm.Size = new System.Drawing.Size(208, 14);
-            this.passwordForm.TabIndex = 12;
-            this.passwordForm.UseSystemPasswordChar = true;
-            this.passwordForm.TextChanged += new System.EventHandler(this.passwordForm_TextChanged);
-            // 
-            // signUpusernameForm
-            // 
-            this.signUpusernameForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.signUpusernameForm.Font = new System.Drawing.Font("나눔스퀘어 Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.signUpusernameForm.Location = new System.Drawing.Point(56, 197);
-            this.signUpusernameForm.Name = "signUpusernameForm";
-            this.signUpusernameForm.Size = new System.Drawing.Size(208, 22);
-            this.signUpusernameForm.TabIndex = 11;
-            this.signUpusernameForm.TextChanged += new System.EventHandler(this.usernameForm_TextChanged);
             // 
             // panel2
             // 
@@ -86,6 +66,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(236, 1);
             this.panel1.TabIndex = 9;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel3.Location = new System.Drawing.Point(0, -39);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(236, 1);
+            this.panel3.TabIndex = 10;
             // 
             // button2
             // 
@@ -117,16 +105,16 @@
             this.button1.TabStop = false;
             this.button1.Text = "회원가입 완료";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // SignUpEmailForm
             // 
             this.SignUpEmailForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.SignUpEmailForm.Font = new System.Drawing.Font("나눔스퀘어 Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.SignUpEmailForm.Location = new System.Drawing.Point(56, 157);
+            this.SignUpEmailForm.Font = new System.Drawing.Font("나눔스퀘어 Bold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SignUpEmailForm.Location = new System.Drawing.Point(56, 162);
             this.SignUpEmailForm.Name = "SignUpEmailForm";
-            this.SignUpEmailForm.Size = new System.Drawing.Size(208, 22);
+            this.SignUpEmailForm.Size = new System.Drawing.Size(208, 18);
             this.SignUpEmailForm.TabIndex = 16;
-            this.SignUpEmailForm.TextChanged += new System.EventHandler(this.SignUpEmailForm_TextChanged);
             // 
             // pictureBox4
             // 
@@ -168,14 +156,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.MidnightBlue;
-            this.panel3.Location = new System.Drawing.Point(0, -39);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(236, 1);
-            this.panel3.TabIndex = 10;
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.MidnightBlue;
@@ -184,7 +164,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(236, 1);
             this.panel4.TabIndex = 11;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // panel5
             // 
@@ -194,19 +173,38 @@
             this.panel5.Size = new System.Drawing.Size(236, 1);
             this.panel5.TabIndex = 10;
             // 
+            // signUpusernameForm
+            // 
+            this.signUpusernameForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.signUpusernameForm.Font = new System.Drawing.Font("나눔스퀘어 Bold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.signUpusernameForm.Location = new System.Drawing.Point(56, 202);
+            this.signUpusernameForm.Name = "signUpusernameForm";
+            this.signUpusernameForm.Size = new System.Drawing.Size(208, 18);
+            this.signUpusernameForm.TabIndex = 17;
+            // 
+            // passwordForm
+            // 
+            this.passwordForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passwordForm.Font = new System.Drawing.Font("나눔스퀘어 Bold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.passwordForm.Location = new System.Drawing.Point(56, 247);
+            this.passwordForm.Name = "passwordForm";
+            this.passwordForm.Size = new System.Drawing.Size(208, 18);
+            this.passwordForm.TabIndex = 18;
+            this.passwordForm.UseSystemPasswordChar = true;
+            // 
             // SignUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(294, 415);
+            this.Controls.Add(this.passwordForm);
+            this.Controls.Add(this.signUpusernameForm);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.SignUpEmailForm);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.passwordForm);
-            this.Controls.Add(this.signUpusernameForm);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox3);
@@ -216,7 +214,6 @@
             this.Name = "SignUpForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SignUpForm";
-            this.Load += new System.EventHandler(this.SignUpForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -231,8 +228,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox passwordForm;
-        private System.Windows.Forms.TextBox signUpusernameForm;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -244,5 +239,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.TextBox signUpusernameForm;
+        private System.Windows.Forms.TextBox passwordForm;
     }
 }

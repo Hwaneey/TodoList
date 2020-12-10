@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -16,6 +17,7 @@ namespace TodoList
     {
         bool On;
         Point Pos;
+        Security security = new Security();
 
         public object MessageBoxButton { get; private set; }
 
@@ -56,14 +58,9 @@ namespace TodoList
             this.Close();
         }
 
-        private void emailForm_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void loginButton_Click(object sender, EventArgs e)
         {
-        
+         
         }
     }
 }

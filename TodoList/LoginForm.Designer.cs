@@ -63,17 +63,17 @@
             // emailForm
             // 
             this.emailForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.emailForm.Font = new System.Drawing.Font("나눔스퀘어 Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.emailForm.Location = new System.Drawing.Point(57, 231);
+            this.emailForm.Font = new System.Drawing.Font("나눔스퀘어 Bold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.emailForm.Location = new System.Drawing.Point(57, 236);
             this.emailForm.Name = "emailForm";
-            this.emailForm.Size = new System.Drawing.Size(208, 22);
+            this.emailForm.Size = new System.Drawing.Size(208, 15);
             this.emailForm.TabIndex = 5;
-            this.emailForm.TextChanged += new System.EventHandler(this.emailForm_TextChanged);
+           // this.emailForm.TextChanged += new System.EventHandler(this.emailForm_TextChanged);
             // 
             // passwordForm
             // 
             this.passwordForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordForm.Location = new System.Drawing.Point(57, 279);
+            this.passwordForm.Location = new System.Drawing.Point(57, 283);
             this.passwordForm.Name = "passwordForm";
             this.passwordForm.Size = new System.Drawing.Size(208, 14);
             this.passwordForm.TabIndex = 6;

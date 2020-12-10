@@ -5,7 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,7 +17,8 @@ namespace TodoList
     {
         bool On;
         Point Pos;
-        LoginForm loginForm = new LoginForm();
+        DAO dao = new DAO();
+        Security security = new Security();
 
         public SignUpForm()
         {
@@ -32,18 +35,16 @@ namespace TodoList
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
-        (
-            int nLeftRect, // x-coordinate of upper-left corner
-            int nTopRect, // y-coordinate of upper-left corner
-            int nRightRect, // x-coordinate of lower-right corner
-            int nBottomRect, // y-coordinate of lower-right corner
-            int nWidthEllipse, // height of ellipse
-            int nHeightEllipse // width of ellipse
-         );
-        private void SignUpForm_Load(object sender, EventArgs e)
-        {
+         (
+             int nLeftRect, // x-coordinate of upper-left corner
+             int nTopRect, // y-coordinate of upper-left corner
+             int nRightRect, // x-coordinate of lower-right corner
+             int nBottomRect, // y-coordinate of lower-right corner
+             int nWidthEllipse, // height of ellipse
+             int nHeightEllipse // width of ellipse
+          );
 
-        }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -53,23 +54,24 @@ namespace TodoList
             this.Close();
         }
 
-        private void usernameForm_TextChanged(object sender, EventArgs e)
-        {
-       
-        }
 
-        private void SignUpEmailForm_TextChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-        }
-
-        private void passwordForm_TextChanged(object sender, EventArgs e)
-        {
-         
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
+            if (security.IsValidEmail(SignUpEmailForm.Text) == true)
+            {
+                dao.SignUp(SignUpEmailForm.Text, signUpusernameForm.Text, security.EncryptSHA256_EUCKR(passwordForm.Text));
+                
+                this.Hide();
+                LoginForm loginForm = new LoginForm();
+                loginForm.ShowDialog();
+                this.Close();
+            }
+            else if (security.IsValidEmail(SignUpEmailForm.Text) == false)
+            {
+                MessageBox.Show("이메일 형식에 어긋났습니다. 다시 작성해주세요");
+            }
+           
+            
         }
     }
 }
