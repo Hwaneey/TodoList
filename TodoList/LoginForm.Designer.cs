@@ -68,7 +68,6 @@
             this.emailForm.Name = "emailForm";
             this.emailForm.Size = new System.Drawing.Size(208, 15);
             this.emailForm.TabIndex = 5;
-           // this.emailForm.TextChanged += new System.EventHandler(this.emailForm_TextChanged);
             // 
             // passwordForm
             // 
@@ -78,6 +77,7 @@
             this.passwordForm.Size = new System.Drawing.Size(208, 14);
             this.passwordForm.TabIndex = 6;
             this.passwordForm.UseSystemPasswordChar = true;
+            this.passwordForm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordForm_KeyDown);
             // 
             // loginButton
             // 

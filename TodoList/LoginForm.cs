@@ -18,8 +18,8 @@ namespace TodoList
         bool On;
         Point Pos;
         Security security = new Security();
+        DAO dao = new DAO();
 
-        public object MessageBoxButton { get; private set; }
 
         public LoginForm()
         {
@@ -60,7 +60,36 @@ namespace TodoList
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-         
+            if (emailForm.Text == "")
+            {
+                MessageBox.Show("Please enter user name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                emailForm.Focus();
+                return;
+            }
+            if (passwordForm.Text == "")
+            {
+                MessageBox.Show("Please enter password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                passwordForm.Focus();
+                return;
+            }
+            dao.Login(emailForm.Text, security.EncryptSHA256_EUCKR(passwordForm.Text));
+
+            this.Hide();
+            MainTodoList mainTodoList = new MainTodoList();
+            mainTodoList.ShowDialog();
+            this.Close();
+        }
+
+
+
+        private void passwordForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginButton_Click(sender, e);
+                loginButton.Select();
+            }
+            
         }
     }
 }

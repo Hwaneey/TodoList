@@ -28,6 +28,11 @@ namespace TodoList
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
             //폼 마우스 클릭시 이동
+            formMoving();
+        }
+
+        private void formMoving()
+        {
             MouseDown += (o, e) => { if (e.Button == MouseButtons.Left) { On = true; Pos = e.Location; } };
             MouseMove += (o, e) => { if (On) Location = new Point(Location.X + (e.X - Pos.X), Location.Y + (e.Y - Pos.Y)); };
             MouseUp += (o, e) => { if (e.Button == MouseButtons.Left) { On = false; Pos = e.Location; } };
@@ -44,34 +49,39 @@ namespace TodoList
              int nHeightEllipse // width of ellipse
           );
 
-
+        private void BackButton()
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+            this.Close();
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            LoginForm loginForm= new LoginForm();
-            loginForm.ShowDialog();
-            this.Close();
+            BackButton();
         }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (security.IsValidEmail(SignUpEmailForm.Text) == true)
-            {
-                dao.SignUp(SignUpEmailForm.Text, signUpusernameForm.Text, security.EncryptSHA256_EUCKR(passwordForm.Text));
-                
-                this.Hide();
-                LoginForm loginForm = new LoginForm();
-                loginForm.ShowDialog();
-                this.Close();
-            }
-            else if (security.IsValidEmail(SignUpEmailForm.Text) == false)
+            if (security.IsValidEmail(SignUpEmailForm.Text) == false)
             {
                 MessageBox.Show("이메일 형식에 어긋났습니다. 다시 작성해주세요");
+                return;
             }
-           
-            
+           if (!passwordForm.Text.Equals(rePasswordForm.Text))
+            {
+                MessageBox.Show("비밀번호를 다시 확인해주세요 ");
+                return;
+            }
+            dao.SignUp(SignUpEmailForm.Text, signUpusernameForm.Text, security.EncryptSHA256_EUCKR(passwordForm.Text));
+
+            //dao.SignUp(SignUpEmailForm.Text.Trim(), signUpusernameForm.Text.Trim(), passwordForm.Text.Trim());
+
+            MessageBox.Show("회원가입에 성공하셨습니다. ");
+
+            BackButton();
         }
     }
 }

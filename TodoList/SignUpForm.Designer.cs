@@ -34,20 +34,24 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.SignUpEmailForm = new System.Windows.Forms.TextBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.signUpusernameForm = new System.Windows.Forms.TextBox();
             this.passwordForm = new System.Windows.Forms.TextBox();
+            this.rePasswordForm = new System.Windows.Forms.TextBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -82,7 +86,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("나눔스퀘어 Bold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(25, 345);
+            this.button2.Location = new System.Drawing.Point(25, 355);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(236, 28);
             this.button2.TabIndex = 14;
@@ -98,7 +102,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("나눔스퀘어 Bold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(25, 311);
+            this.button1.Location = new System.Drawing.Point(25, 321);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(236, 28);
             this.button1.TabIndex = 13;
@@ -115,46 +119,6 @@
             this.SignUpEmailForm.Name = "SignUpEmailForm";
             this.SignUpEmailForm.Size = new System.Drawing.Size(208, 18);
             this.SignUpEmailForm.TabIndex = 16;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::TodoList.Properties.Resources.그림1;
-            this.pictureBox4.Location = new System.Drawing.Point(25, 151);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 15;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::TodoList.Properties.Resources.그림4;
-            this.pictureBox3.Location = new System.Drawing.Point(25, 236);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 8;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::TodoList.Properties.Resources.그림5;
-            this.pictureBox2.Location = new System.Drawing.Point(25, 191);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::TodoList.Properties.Resources.시그니처;
-            this.pictureBox1.Location = new System.Drawing.Point(25, 31);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(236, 92);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // panel4
             // 
@@ -192,12 +156,83 @@
             this.passwordForm.TabIndex = 18;
             this.passwordForm.UseSystemPasswordChar = true;
             // 
+            // rePasswordForm
+            // 
+            this.rePasswordForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rePasswordForm.Font = new System.Drawing.Font("나눔스퀘어 Bold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rePasswordForm.Location = new System.Drawing.Point(56, 290);
+            this.rePasswordForm.Name = "rePasswordForm";
+            this.rePasswordForm.Size = new System.Drawing.Size(208, 18);
+            this.rePasswordForm.TabIndex = 21;
+            this.rePasswordForm.UseSystemPasswordChar = true;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel6.Location = new System.Drawing.Point(25, 308);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(236, 1);
+            this.panel6.TabIndex = 20;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::TodoList.Properties.Resources.그림4;
+            this.pictureBox5.Location = new System.Drawing.Point(25, 279);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 19;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::TodoList.Properties.Resources.그림1;
+            this.pictureBox4.Location = new System.Drawing.Point(25, 151);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 15;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::TodoList.Properties.Resources.그림6;
+            this.pictureBox3.Location = new System.Drawing.Point(25, 236);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 8;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::TodoList.Properties.Resources.그림5;
+            this.pictureBox2.Location = new System.Drawing.Point(25, 191);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TodoList.Properties.Resources.시그니처;
+            this.pictureBox1.Location = new System.Drawing.Point(25, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(236, 92);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // SignUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(294, 415);
+            this.Controls.Add(this.rePasswordForm);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.passwordForm);
             this.Controls.Add(this.signUpusernameForm);
             this.Controls.Add(this.panel4);
@@ -215,11 +250,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SignUpForm";
             this.panel1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,5 +277,8 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox signUpusernameForm;
         private System.Windows.Forms.TextBox passwordForm;
+        private System.Windows.Forms.TextBox rePasswordForm;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

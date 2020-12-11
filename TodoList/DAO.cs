@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,8 @@ namespace TodoList
         
         public void SignUp(string email ,string username, string password)
         {
-            String sql = "INSERT INTO USERINFO VALUES(' " + email.ToString() + "' ,N' " + username.ToString() + " ', ' "+password.ToString() + " ' )";
+            String sql = "INSERT INTO USERINFO VALUES('"+email.Trim()+"' ,N'"+username.Trim()+"', '"+password.Trim()+"' )";
+
             connection.Open();
 
             SqlCommand command = new SqlCommand(sql, connection);
@@ -40,9 +42,25 @@ namespace TodoList
         }
 
         public void Login(string email, string password)
-        {
-         
-            
+        { 
+            string sql = "SELECT * FROM userinfo where email='" + email + "' AND password='" + password + "'";
+
+            connection.Open();
+
+            SqlCommand comand = new SqlCommand(sql, connection);
+
+            SqlDataReader dataReader = comand.ExecuteReader();
+
+            if (dataReader.Read())
+            {
+                
+            }
+            else
+            {
+                MessageBox.Show("아이디와패스워드를 확인해주세요");
+            }
+            connection.Close();
+
         }
 
     }
