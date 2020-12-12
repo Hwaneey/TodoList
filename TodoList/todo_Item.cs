@@ -17,13 +17,13 @@ namespace TodoList
         public string key = null;
         public string value = null;
 
-        public del(String Text, string Key, bool Checked)
+        public del(String Text)
         {
             InitializeComponent();
-            key = Key;
+            //key = Key;
             value = Text;
             label1.Text = Text;
-            checkBox1.Checked = Checked;
+            checkBox1.Checked = false;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

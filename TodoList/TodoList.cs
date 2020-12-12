@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -14,12 +15,16 @@ namespace TodoList
     public partial class TodoList : Form
     {
         bool On;
+
         Point Pos;
+
         int poss = 10;
 
+        DAO dao = new DAO();
         public TodoList()
         {
             InitializeComponent();
+            dao.getItem();
 
             //폼 모서리 둥글게
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
@@ -30,9 +35,10 @@ namespace TodoList
             MouseUp += (o, e) => { if (e.Button == MouseButtons.Left) { On = false; Pos = e.Location; } };
         }
 
-        public void addItem(string Text, string Key, bool Checked)
+        public void addItem(string Text)
         {
-            del item = new del(Text, Key, Checked);
+            //del item = new del(Text, Key, Checked);
+            del item = new del(Text);
 
             panel2.Controls.Add(item);
 
@@ -48,8 +54,10 @@ namespace TodoList
                 MessageBox.Show("Invalid Text");
                 return;
             }
-            addItem(textBox1.Text, "0", false);
-            
+            addItem(textBox1.Text);
+
+            dao.addList(textBox1.Text);
+
             textBox1.Text = "";
         }
 

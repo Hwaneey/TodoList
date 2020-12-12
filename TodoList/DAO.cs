@@ -12,7 +12,7 @@ namespace TodoList
      class DAO 
     {
         SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GeonHa\Documents\TodoList.mdf;Integrated Security=True;Connect Timeout=30");
-        
+        TodoList todoList = new TodoList();
         public void SignUp(string email ,string username, string password)
         {
             String sql = "INSERT INTO USERINFO VALUES('"+email.Trim()+"' ,N'"+username.Trim()+"', '"+password.Trim()+"' )";
@@ -41,6 +41,35 @@ namespace TodoList
             connection.Close();
         }
 
+        internal void getItem()
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GeonHa\Documents\TodoList.mdf;Integrated Security=True;Connect Timeout=30");
+
+            string sql = "SELECT * FROM list where ID='1'";
+
+            try
+            {
+                using (connection)
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sql, connection);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            todoList.addItem("" + reader["text"]);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
         public void Login(string email, string password)
         { 
             string sql = "SELECT * FROM userinfo where email='" + email + "' AND password='" + password + "'";
@@ -63,14 +92,29 @@ namespace TodoList
 
         }
 
-        public void AddItem(string item, bool check)
+        internal void addList(string text)
         {
-            String sql = "INSERT INTO USERINFO VALUES(N'" + item.Trim() + "')";
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GeonHa\Documents\TodoList.mdf;Integrated Security=True;Connect Timeout=30");
 
-            connection.Open();
+            String sql = "INSERT INTO list (TEXT,ID) VALUES( '" +text + "','1')";
 
-            SqlCommand command = new SqlCommand(sql, connection);
+            using (connection)
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sql, connection);
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    throw;
+                }
+
+            }
         }
+
 
     }
 }
