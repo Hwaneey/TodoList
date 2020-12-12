@@ -75,7 +75,7 @@ namespace TodoList
             dao.Login(emailForm.Text, security.EncryptSHA256_EUCKR(passwordForm.Text));
 
             this.Hide();
-            MainTodoList mainTodoList = new MainTodoList();
+            TodoList mainTodoList = new TodoList();
             mainTodoList.ShowDialog();
             this.Close();
         }

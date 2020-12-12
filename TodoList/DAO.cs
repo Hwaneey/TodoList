@@ -57,10 +57,19 @@ namespace TodoList
             }
             else
             {
-                MessageBox.Show("아이디와패스워드를 확인해주세요");
+                //MessageBox.Show("아이디와패스워드를 확인해주세요");
             }
             connection.Close();
 
+        }
+
+        public void AddItem(string item, bool check)
+        {
+            String sql = "INSERT INTO USERINFO VALUES(N'" + item.Trim() + "')";
+
+            connection.Open();
+
+            SqlCommand command = new SqlCommand(sql, connection);
         }
 
     }
