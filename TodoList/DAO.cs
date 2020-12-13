@@ -7,31 +7,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TodoList 
+namespace TodoList
 {
-     class DAO 
+    class DAO
     {
         SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GeonHa\Documents\TodoList.mdf;Integrated Security=True;Connect Timeout=30");
-        TodoList todoList = new TodoList();
-        public void SignUp(string email ,string username, string password)
+
+        public object sessionId;
+
+        //TodoList todoList = new TodoList();
+        public void SignUp(string email, string username, string password)
         {
-            String sql = "INSERT INTO USERINFO VALUES('"+email.Trim()+"' ,N'"+username.Trim()+"', '"+password.Trim()+"' )";
+            String sql = "INSERT INTO USERINFO VALUES('" + email.Trim() + "' ,N'" + username.Trim() + "', '" + password.Trim() + "' )";
 
-            connection.Open();
-
-            SqlCommand command = new SqlCommand(sql, connection);
-
-            //예외 처리
             try
             {
-                if (command.ExecuteNonQuery() == 1)
-                {
-                    //MessageBox.Show("DB CONNECTION");
-                }
-                else
-                {
-                    MessageBox.Show("NOT DB CONNECTION");
-                }
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(sql, connection);
+
             }
             catch (Exception ex)
             {
@@ -39,80 +33,37 @@ namespace TodoList
             }
 
             connection.Close();
-        }
-
-        internal void getItem()
-        {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GeonHa\Documents\TodoList.mdf;Integrated Security=True;Connect Timeout=30");
-
-            string sql = "SELECT * FROM list where ID='1'";
-
-            try
-            {
-                using (connection)
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sql, connection);
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            todoList.addItem("" + reader["text"]);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-
         }
 
         public void Login(string email, string password)
-        { 
+        {
             string sql = "SELECT * FROM userinfo where email='" + email + "' AND password='" + password + "'";
-
-            connection.Open();
-
-            SqlCommand comand = new SqlCommand(sql, connection);
-
-            SqlDataReader dataReader = comand.ExecuteReader();
-
-            if (dataReader.Read())
+            try
             {
-                
+                connection.Open();
+
+                SqlCommand comand = new SqlCommand(sql, connection);
+
+                SqlDataReader dataReader = comand.ExecuteReader();
+
+                if (dataReader.Read())
+                {
+                    MessageBox.Show("어서오세요 " + dataReader["username"] + "님");
+                    TodoList.seesionId = dataReader["id"];
+                }
+                else
+                {
+                    MessageBox.Show("아이디와패스워드를 확인해주세요");
+                    return;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                //MessageBox.Show("아이디와패스워드를 확인해주세요");
+                MessageBox.Show(ex.Message);
             }
+           
             connection.Close();
 
-        }
-
-        internal void addList(string text)
-        {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GeonHa\Documents\TodoList.mdf;Integrated Security=True;Connect Timeout=30");
-
-            String sql = "INSERT INTO list (TEXT,ID) VALUES( '" +text + "','1')";
-
-            using (connection)
-            {
-                try
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sql, connection);
-                    command.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    throw;
-                }
-
-            }
         }
 
 

@@ -20,11 +20,14 @@ namespace TodoList
 
         int poss = 10;
 
-        DAO dao = new DAO();
+
+        public static object seesionId;
+
         public TodoList()
         {
             InitializeComponent();
-            dao.getItem();
+
+            getItem(seesionId);
 
             //폼 모서리 둥글게
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
@@ -37,7 +40,6 @@ namespace TodoList
 
         public void addItem(string Text)
         {
-            //del item = new del(Text, Key, Checked);
             del item = new del(Text);
 
             panel2.Controls.Add(item);
@@ -51,15 +53,71 @@ namespace TodoList
         {
             if (textBox1.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Invalid Text");
+                MessageBox.Show("문자를 적어주세요");
+
                 return;
             }
             addItem(textBox1.Text);
 
-            dao.addList(textBox1.Text);
+            addList(textBox1.Text,seesionId);
 
             textBox1.Text = "";
         }
+        public void getItem(object seesionId)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GeonHa\Documents\TodoList.mdf;Integrated Security=True;Connect Timeout=30");
+            
+            string sql = "SELECT * FROM ITEMLIST where ID='" + seesionId+"'";
+
+            try
+            {
+                using (connection)
+                {
+                    connection.Open();
+
+                    SqlCommand command = new SqlCommand(sql, connection);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            addItem("" + reader["text"]);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+        public void addList(string text, object sessionId)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GeonHa\Documents\TodoList.mdf;Integrated Security=True;Connect Timeout=30");
+            
+            String sql = "INSERT INTO ITEMLIST (TEXT,ID) VALUES( '" + text + "','"+seesionId+"')";
+
+            using (connection)
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand command = new SqlCommand(sql, connection);
+
+                    command.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+        }
+
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn

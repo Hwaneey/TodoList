@@ -16,8 +16,11 @@ namespace TodoList
     public partial class LoginForm : Form
     {
         bool On;
+
         Point Pos;
+
         Security security = new Security();
+
         DAO dao = new DAO();
 
 
@@ -53,8 +56,11 @@ namespace TodoList
         private void label1_Click(object sender, EventArgs e)
         {
             this.Hide();
+
             SignUpForm signUpForm = new SignUpForm();
+
             signUpForm.ShowDialog();
+
             this.Close();
         }
 
@@ -62,21 +68,24 @@ namespace TodoList
         {
             if (emailForm.Text == "")
             {
-                MessageBox.Show("Please enter user name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("E-mail을 입력해주세요", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 emailForm.Focus();
                 return;
             }
             if (passwordForm.Text == "")
             {
-                MessageBox.Show("Please enter password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("비밀번호를 입력해주세요", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 passwordForm.Focus();
                 return;
             }
             dao.Login(emailForm.Text, security.EncryptSHA256_EUCKR(passwordForm.Text));
 
             this.Hide();
+
             TodoList mainTodoList = new TodoList();
+            
             mainTodoList.ShowDialog();
+            
             this.Close();
         }
 

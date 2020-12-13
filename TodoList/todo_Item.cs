@@ -7,22 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace TodoList
 {
     public partial class del : UserControl
     {
         public event EventHandler onChange = null;
+
         public event EventHandler onDelete = null;
+
         public string key = null;
+
         public string value = null;
+
+        TodoList todo = new TodoList();
 
         public del(String Text)
         {
             InitializeComponent();
-            //key = Key;
+
             value = Text;
+
             label1.Text = Text;
+
             checkBox1.Checked = false;
         }
 
@@ -30,7 +38,7 @@ namespace TodoList
         {
             if (checkBox1.Checked)
             {
-                //this.BackColor = Color.LightGreen;
+                this.BackColor = Color.LightGreen;
                 label1.Font = new Font(label1.Font.Name, label1.Font.SizeInPoints, FontStyle.Strikeout);
             }
             else
@@ -60,14 +68,37 @@ namespace TodoList
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.BackColor = Color.Tomato;
-            label1.Text = "Deleted";
-            checkBox1.Enabled = false;
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GeonHa\Documents\TodoList.mdf;Integrated Security=True;Connect Timeout=30");
+
+            string sql = "DELETE FROM ITEMLIST WHERE text='" + label1.Text + "' ";
+            try
+            {
+                using (connection)
+                {
+                    connection.Open();
+
+                    SqlCommand command = new SqlCommand(sql, connection);
+
+                    command.ExecuteNonQuery();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
 
             if (onDelete != null)
             {
                 onDelete.Invoke(this, new EventArgs());
             }
+
+            this.BackColor = Color.Tomato;
+
+            label1.Text = "삭제되었습니다.";
+
+            checkBox1.Enabled = false;
         }
     }
 }
