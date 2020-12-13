@@ -18,5 +18,6 @@ namespace TodoList
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());
         }
+
     }
 }

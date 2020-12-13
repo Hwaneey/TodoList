@@ -32,9 +32,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.InsertButton = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InsertButton)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -74,16 +74,16 @@
             this.panel2.Size = new System.Drawing.Size(296, 302);
             this.panel2.TabIndex = 3;
             // 
-            // pictureBox1
+            // InsertButton
             // 
-            this.pictureBox1.Image = global::TodoList.Properties.Resources.그림11;
-            this.pictureBox1.Location = new System.Drawing.Point(257, 389);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(46, 37);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.InsertButton.Image = global::TodoList.Properties.Resources.그림11;
+            this.InsertButton.Location = new System.Drawing.Point(257, 389);
+            this.InsertButton.Name = "InsertButton";
+            this.InsertButton.Size = new System.Drawing.Size(46, 37);
+            this.InsertButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.InsertButton.TabIndex = 1;
+            this.InsertButton.TabStop = false;
+            this.InsertButton.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // TodoList
             // 
@@ -92,7 +92,7 @@
             this.ClientSize = new System.Drawing.Size(310, 440);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.InsertButton);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TodoList";
@@ -101,7 +101,7 @@
             this.Text = "MainTodoList";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InsertButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,7 +111,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox InsertButton;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panel2;
     }
