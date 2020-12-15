@@ -80,13 +80,7 @@ namespace TodoList
             }
             dao.Login(emailForm.Text, security.EncryptSHA256_EUCKR(passwordForm.Text));
 
-            this.Hide();
 
-            TodoList mainTodoList = new TodoList();
-            
-            mainTodoList.ShowDialog();
-            
-            this.Close();
         }
 
 

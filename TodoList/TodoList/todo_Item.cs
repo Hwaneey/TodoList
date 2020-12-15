@@ -70,7 +70,7 @@ namespace TodoList
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GeonHa\Documents\TodoList.mdf;Integrated Security=True;Connect Timeout=30");
-
+            
             string sql = "DELETE FROM ITEMLIST WHERE text='" + label1.Text + "' ";
             try
             {

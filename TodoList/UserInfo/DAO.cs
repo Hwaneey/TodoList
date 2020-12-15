@@ -11,9 +11,16 @@ namespace TodoList
 {
     class DAO
     {
+
         SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GeonHa\Documents\TodoList.mdf;Integrated Security=True;Connect Timeout=30");
 
         public object sessionId = null;
+
+        private void SignUpSuccess()
+        {
+            SignUpForm signUpForm = new SignUpForm();
+            signUpForm.BackButton();
+        }
 
         public void SignUp(string email, string username, string password)
         {
@@ -24,6 +31,13 @@ namespace TodoList
                 connection.Open();
 
                 SqlCommand command = new SqlCommand(sql, connection);
+                
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("회원가입이 성공하였습니다!");
+
+                    SignUpSuccess();
+                }
 
             }
             catch (Exception ex)
@@ -34,9 +48,19 @@ namespace TodoList
             connection.Close();
         }
 
+        private void LoginSuccess()
+        {
+            TodoList mainTodoList = new TodoList();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Hide();
+            mainTodoList.ShowDialog();
+            loginForm.Close();
+        }
+
         public void Login(string email, string password)
         {
             string sql = "SELECT * FROM userinfo where email='" + email + "' AND password='" + password + "'";
+
             try
             {
                 connection.Open();
@@ -50,10 +74,14 @@ namespace TodoList
                     MessageBox.Show("어서오세요 " + dataReader["username"] + "님");
 
                     TodoList.seesionId = dataReader["id"];
+
+                    LoginSuccess();
+
                 }
                 else
                 {
                     MessageBox.Show("아이디와패스워드를 확인해주세요");
+
                     return;
                 }
             }

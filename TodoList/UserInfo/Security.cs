@@ -24,6 +24,7 @@ namespace TodoList
             Encoding encoder = Encoding.GetEncoding(euckrCodepage);
 
             SHA256CryptoServiceProvider sha256hasher = new SHA256CryptoServiceProvider();
+
             byte[] hashedDataBytes = sha256hasher.ComputeHash(encoder.GetBytes(phrase));
 
             string hashString = string.Empty;

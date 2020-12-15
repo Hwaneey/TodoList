@@ -49,7 +49,7 @@ namespace TodoList
              int nHeightEllipse // width of ellipse
           );
 
-        private void BackButton()
+        public void BackButton()
         {
             this.Hide();
             LoginForm loginForm = new LoginForm();
@@ -67,21 +67,22 @@ namespace TodoList
         {
             if (security.IsValidEmail(SignUpEmailForm.Text) == false)
             {
-                MessageBox.Show("이메일 형식에 어긋났습니다. 다시 작성해주세요");
+                MessageBox.Show("이메일 형식에 어긋났습니다. 다시 작성해주세요","Error");
                 return;
             }
-           if (!passwordForm.Text.Equals(rePasswordForm.Text))
+            if (signUpusernameForm.Text == "")
             {
-                MessageBox.Show("비밀번호를 다시 확인해주세요 ");
+                MessageBox.Show("이름 을 입력해주세요", "Error");
+                signUpusernameForm.Focus();
+                return;
+            }
+            if (!passwordForm.Text.Equals(rePasswordForm.Text))
+            {
+                MessageBox.Show("비밀번호를 다시 확인해주세요 ","Error");
                 return;
             }
             dao.SignUp(SignUpEmailForm.Text, signUpusernameForm.Text, security.EncryptSHA256_EUCKR(passwordForm.Text));
 
-            //dao.SignUp(SignUpEmailForm.Text.Trim(), signUpusernameForm.Text.Trim(), passwordForm.Text.Trim());
-
-            MessageBox.Show("회원가입에 성공하셨습니다. ");
-
-            BackButton();
         }
     }
 }

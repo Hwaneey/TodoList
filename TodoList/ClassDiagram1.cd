@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TodoList.Program">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.del">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAABIAAAECAgABEAAACEAAACAAAAACAAAAAAAAFAAAA=</HashCode>
+      <FileName>TodoList\todo_Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.TodoList">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAACAAAFABAAiAAAACgACAAAQBEAAAAQAAAJA=</HashCode>
+      <FileName>TodoList\TodoList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.DAO">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAgBAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>UserInfo\DAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.LoginForm">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAgABQAASAAAgABIACAQAASEACQEBAAAAAAAQBABIA=</HashCode>
+      <FileName>UserInfo\LoginForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.Security">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>UserInfo\Security.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.SignUpForm">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQgAhAAACAQAAABACCBQAASAACYAAAAAGAAASBABIA=</HashCode>
+      <FileName>UserInfo\SignUpForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.Properties.Resources">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAQAAAAAAAABEAAAAQAAAgQAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.Properties.Settings" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>
